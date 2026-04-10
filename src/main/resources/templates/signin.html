@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
+
+	<title>Document</title>
+</head>
+
+<body class="bg-white vh-100">
+	<button onclick="window.history.back()"
+		class="position-absolute m-4 start-0 border border-secondary rounded-pill pt-1 pb-1 ps-3 pe-3"
+		style="border-radius: 5px;">
+		<i class="bi bi-arrow-left"></i>
+		Back
+	</button>
+	<div style="padding: 0px 200px; max-width: 80%;"
+		class="pt-4 pb-4 h-100 w-100 container d-flex justify-content-center align-items-center">
+		<div style="min-width: 300px; max-width: 500px;"
+			class="card shadow-sm w-100 border-radius overflow-auto hide-scrollbar p-4">
+			<h1 class="text-center fw-bold mb-4">Đăng nhập</h1>
+			<form th:action="@{/auth/signin}" method="post">
+				<div class="mb-3">
+					<label class="form-label fw-bold">Tên đăng nhập</label>
+					<input type="text" name="username" class="form-control" required>
+				</div>
+				<div class="mb-4">
+					<label class="form-label fw-bold">Mật khẩu</label>
+					<input type="password" name="password" class="form-control" required>
+				</div>
+				<button type="submit" class="btn btn-primary w-100 fw-bold mb-3 py-2 shadow-sm">Đăng Nhập</button>
+				<div class="text-center mb-2">
+					<span class="fw-bold small">Chưa có tài khoản?</span>
+				</div>
+				<a href="/signup" class="btn btn-success w-100 fw-bold py-2 shadow-sm">Đăng Ký</a>
+			</form>
+		</div>
+	</div>
+	<script th:inline="javascript">
+		let message = [[${message}]];
+		if (message) {
+			alert(message);
+		}
+	</script>
+</body>
+
+</html>
