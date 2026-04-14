@@ -1,4 +1,4 @@
-package com.oosd.springmvc_mxh.sql;
+package com.oosd.springmvc_mxh.database;
 
 public final class Command {
 

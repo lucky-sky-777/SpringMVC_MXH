@@ -1,9 +1,9 @@
 package com.oosd.springmvc_mxh.repository.extend.implement;
 
-import com.oosd.springmvc_mxh.sql.Database;
+import com.oosd.springmvc_mxh.database.Database;
 import com.oosd.springmvc_mxh.repository.extend.FollowRepository;
 import com.oosd.springmvc_mxh.entity.Follow;
-import com.oosd.springmvc_mxh.sql.Command;
+import com.oosd.springmvc_mxh.database.Command;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;

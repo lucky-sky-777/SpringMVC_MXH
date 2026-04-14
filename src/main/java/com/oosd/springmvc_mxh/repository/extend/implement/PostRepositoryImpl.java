@@ -1,16 +1,15 @@
 package com.oosd.springmvc_mxh.repository.extend.implement;
 
-import com.oosd.springmvc_mxh.sql.Database;
+import com.oosd.springmvc_mxh.database.Database;
 import com.oosd.springmvc_mxh.repository.extend.PostRepository;
 import com.oosd.springmvc_mxh.entity.Post;
-import com.oosd.springmvc_mxh.sql.Command;
+import com.oosd.springmvc_mxh.database.Command;
 import com.oosd.springmvc_mxh.util.ResultSetMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

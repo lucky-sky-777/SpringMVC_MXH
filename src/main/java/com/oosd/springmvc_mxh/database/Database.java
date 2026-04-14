@@ -1,4 +1,4 @@
-package com.oosd.springmvc_mxh.sql;
+package com.oosd.springmvc_mxh.database;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 

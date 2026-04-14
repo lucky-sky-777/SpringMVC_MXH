@@ -4,9 +4,7 @@ import com.oosd.springmvc_mxh.util.HttpServletResponseUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.jspecify.annotations.NonNull;
-import org.jspecify.annotations.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 public class NoCacheInterceptor implements HandlerInterceptor {
 

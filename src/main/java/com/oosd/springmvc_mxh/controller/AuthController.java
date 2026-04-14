@@ -33,14 +33,12 @@ public class AuthController {
 			RedirectAttributes redirectAttributes
 	) throws SQLException {
 		boolean success = userService.signIn(username, password);
-
 		if (success) {
 			request.getSession().setAttribute("username", username);
 			redirectAttributes.addFlashAttribute("message", "Đăng nhập thành công");
 		} else {
 			redirectAttributes.addFlashAttribute("message", "Đăng nhập thất bại");
 		}
-
 		return "redirect:/signin";
 	}
 
@@ -52,13 +50,11 @@ public class AuthController {
 			RedirectAttributes redirectAttributes
 	) throws SQLException {
 		boolean success = userService.signUp(username, password, repassword);
-
 		if (success) {
 			redirectAttributes.addFlashAttribute("message", "Đăng ký thành công");
 		} else {
 			redirectAttributes.addFlashAttribute("message", "Đăng ký thất bại");
 		}
-
 		return "redirect:/signup";
 	}
 
