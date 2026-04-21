@@ -6,24 +6,49 @@ import java.security.NoSuchAlgorithmException;
 
 public final class Hasher {
 
-    public static class Algorithm {
-        public static final String SHA_256 = "SHA-256";
-        public static final String SHA_512 = "SHA-512";
+    public enum Algorithm {
+
+        SHA_256("SHA-256"),
+        SHA_512("SHA-512");
+
+        private final String value;
+
+        Algorithm(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
     }
 
-    public static String hash(String content, String algorithm) {
+    public static String hash(String content, Algorithm algorithm) {
         final MessageDigest messageDigest;
 
         try {
-            messageDigest = MessageDigest.getInstance(algorithm);
+            messageDigest = MessageDigest.getInstance(algorithm.getValue());
         } catch (NoSuchAlgorithmException e) {
-            return StringUtils.EMPTY;
+            return "";
         }
 
         byte[] bytes = content.getBytes(StandardCharsets.UTF_8);
         messageDigest.update(bytes);
 
-        return StringUtils.toHex(messageDigest.digest());
+        return toHex(messageDigest.digest());
+    }
+
+    private static String toHex(byte[] bytes) {
+        final char[] HEX = "0123456789ABCDEF".toCharArray();
+        char[] out = new char[bytes.length * 2];
+
+        for (int i = 0, j = 0; i < bytes.length; i++) {
+            int v = bytes[i] & 0xFF;
+            out[j++] = HEX[v >>> 4];
+            out[j++] = HEX[v & 0x0F];
+        }
+
+        return new String(out);
     }
 
 }
